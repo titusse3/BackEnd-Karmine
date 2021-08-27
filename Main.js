@@ -5,12 +5,6 @@ const cors = require('cors');
 const fs = require('fs')
 
 
-const corsOptions = {
-    origin: 'http://localhost/',
-    optionsSuccessStatus: 200 // For legacy browser support
-}
-app.use(cors())
-
 async function GetDB(collection, query){
     const uri = "mongodb+srv://Tituse:Theo76160@cluster0.lj1ma.mongodb.net/test?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
@@ -39,6 +33,19 @@ async function GetDBOption(collection, query, limit){
       await client.close();
   }
 };
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+const corsOptions = {
+    origin: 'http://localhost/',
+    optionsSuccessStatus: 200 // For legacy browser support
+}
+
+app.use(cors());
 
 app.get('/Image/:section/:name', (req, res)=>{
     if (fs.existsSync(`./Data/${req.params.section}/${req.params.name}.png`)){
