@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const {MongoClient} = require('mongodb');
 const cors = require('cors');
-const fs = require('fs')
+const fs = require('fs');
+const path = require('path');
+
 
 
 async function GetDB(collection, query){
