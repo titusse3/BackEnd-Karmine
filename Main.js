@@ -2,8 +2,9 @@ const express = require("express");
 const app = express();
 const {MongoClient} = require('mongodb');
 const cors = require('cors');
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+
+
 
 
 
@@ -11,14 +12,12 @@ async function GetDB(collection, query){
     const uri = "mongodb+srv://Tituse:Theo76160@cluster0.lj1ma.mongodb.net/test?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
     try{
-    await client.connect();
-    const collec = await client.db("Karmine").collection(collection);
-    
-    return await collec.find(query).toArray()
-
-  }finally {
-      await client.close();
-  }
+        await client.connect();
+        const collec = await client.db("Karmine").collection(collection);
+        return await collec.find(query).toArray()
+    }finally {
+        await client.close();
+    }
 };
 
 
@@ -26,28 +25,25 @@ async function GetDBOption(collection, query, limit){
     const uri = "mongodb+srv://Tituse:Theo76160@cluster0.lj1ma.mongodb.net/test?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
     try{
-    await client.connect();
-    const collec = await client.db("Karmine").collection(collection);
-    
-    return await collec.find(query).sort({Date : -1}).limit(limit).toArray()
-
-  } finally {
-      await client.close();
-  }
+        await client.connect();
+        const collec = await client.db("Karmine").collection(collection);
+        return await collec.find(query).sort({Date : -1}).limit(limit).toArray()
+    } finally {
+        await client.close();
+    }
 };
 
-app.use(express.static(path.join(__dirname, 'build')));
-
-app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
-
-const corsOptions = {
-    origin: 'http://localhost/',
-    optionsSuccessStatus: 200 // For legacy browser support
-}
+var corsOptions = {
+    origin: "http://localhost:8081"
+};
 
 app.use(cors());
+
+const path = __dirname + '/views/build/';
+
+app.use(express.static(path));
+
+app.use('/static', express.static(__dirname + '../views/build//static'));
 
 app.get('/Image/:section/:name', (req, res)=>{
     if (fs.existsSync(`./Data/${req.params.section}/${req.params.name}.png`)){
@@ -106,4 +102,8 @@ app.get('/Data/Team/:Player', (req, res)=>{
     .catch((err)=> console.log(err))
 });
 
-app.listen(8888);
+app.get('*', function(req, res) {
+    res.sendFile('index.html', {root: path});
+})
+
+app.listen(8080);
