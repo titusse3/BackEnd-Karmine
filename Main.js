@@ -5,9 +5,6 @@ const cors = require('cors');
 const fs = require('fs')
 
 
-
-
-
 async function GetDB(collection, query){
     const uri = "mongodb+srv://Tituse:Theo76160@cluster0.lj1ma.mongodb.net/test?retryWrites=true&w=majority";
     const client = new MongoClient(uri);
@@ -48,10 +45,7 @@ app.use('/static', express.static(__dirname + '../views/build//static'));
 app.get('/Image/:section/:name', (req, res)=>{
     if (fs.existsSync(`./Data/${req.params.section}/${req.params.name}.png`)){
         res.sendFile(`./Data/${req.params.section}/${req.params.name}.png`, { root: __dirname });
-    }
-    // else{
-
-    // }
+    };
 });
 
 app.get('/Data/Shop/', (req, res)=>{
