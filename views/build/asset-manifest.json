@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.99af3206.chunk.css",
-    "main.js": "/static/js/main.eeb74cdc.chunk.js",
-    "main.js.map": "/static/js/main.eeb74cdc.chunk.js.map",
+    "main.css": "/static/css/main.59c65ff3.chunk.css",
+    "main.js": "/static/js/main.23da15f6.chunk.js",
+    "main.js.map": "/static/js/main.23da15f6.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.335ff5b9.js",
     "runtime-main.js.map": "/static/js/runtime-main.335ff5b9.js.map",
     "static/js/2.c21512d3.chunk.js": "/static/js/2.c21512d3.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.40b77bec.chunk.js": "/static/js/3.40b77bec.chunk.js",
     "static/js/3.40b77bec.chunk.js.map": "/static/js/3.40b77bec.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.99af3206.chunk.css.map": "/static/css/main.99af3206.chunk.css.map",
+    "static/css/main.59c65ff3.chunk.css.map": "/static/css/main.59c65ff3.chunk.css.map",
     "static/js/2.c21512d3.chunk.js.LICENSE.txt": "/static/js/2.c21512d3.chunk.js.LICENSE.txt",
     "static/media/MatchPage.css": "/static/media/Kc.9ec56cfe.svg",
     "static/media/ChupaChups.19759719.png": "/static/media/ChupaChups.19759719.png",
@@ -39,7 +39,7 @@
   "entrypoints": [
     "static/js/runtime-main.335ff5b9.js",
     "static/js/2.c21512d3.chunk.js",
-    "static/css/main.99af3206.chunk.css",
-    "static/js/main.eeb74cdc.chunk.js"
+    "static/css/main.59c65ff3.chunk.css",
+    "static/js/main.23da15f6.chunk.js"
   ]
 }
